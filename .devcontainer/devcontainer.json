@@ -4,7 +4,7 @@
 	"name": "Node.js & TypeScript",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
+	"service": "node-app",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -67,6 +67,7 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
+				"Anthropic.claude-code",
 				"amazonwebservices.amazon-q-vscode",
 				"amazonwebservices.aws-toolkit-vscode",
 				"christian-kohler.npm-intellisense",
