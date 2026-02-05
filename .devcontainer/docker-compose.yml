@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    container_name: app
+    container_name: crud-four-app
 
     volumes:
       - ../..:/workspaces:cached
@@ -22,7 +22,18 @@ services:
       - "8000:8000" # For API. Overrides default command so things don't shut down after the process ends.
       - "8080:8080" # For UI. Overrides default command so things don't shut down after the process ends.
 
-    user: root
+    # Resource limits for 16GB RAM / Intel i7-1355U workstation
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+          cpus: '2'
+        reservations:
+          memory: 2G
+          cpus: '1'
+
+    # Using non-root user for security best practices
+    user: node
 
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
     # (Adding the "ports" property to this file will not forward from a Codespace.)
